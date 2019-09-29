@@ -31,7 +31,16 @@ function addNote(title, body) {
 }
 
 function removeNote(title) {
-    console.log(title);
+    const notes = loadNotes();
+
+    const notesToKeep = notes.filter(function(note) {
+        if(note.title === title) {
+            foundNote = true;
+        }
+        return note.title !== title;
+    });
+
+    saveNotes(notesToKeep);
 }
 
 function saveNotes(notes) {

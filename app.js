@@ -3,13 +3,12 @@ const yargs = require('yargs');
 const notes = require('./notes');
 
 // 
-// Challenge: Setup command option and function
+// Challenge: Wire up removeNote
 // 
-// 1. Setup the remove command to take a require "--title" option
-// 2. Create and export a removeNote function from notes.js
-// 3. Call removeNote in remove command handler
-// 4. Have removeNote log the title of the note to be removed
-// 5. Test your work using: node app.js remove --title="some title"
+// 1. Load existing Notes
+// 2. Use array filter method to remove the matching note (if any)
+// 3. Save the newly created array
+// 4. Test your work with a title that exists and a title that doens't exist
 
 
 // Change the version
