@@ -14,7 +14,7 @@ function loadNotes() {
     }
 }
 
-function addNotes(title, body) {
+function addNote(title, body) {
     const notes = loadNotes();
 
     const duplicateNotes = notes.filter(function(note) {
@@ -30,6 +30,10 @@ function addNotes(title, body) {
     }
 }
 
+function removeNote(title) {
+    console.log(title);
+}
+
 function saveNotes(notes) {
     const dataJSON = JSON.stringify(notes);
     fs.writeFileSync('notes.json', dataJSON);
@@ -38,5 +42,6 @@ function saveNotes(notes) {
   
 module.exports = {
     getNotes: getNotes,
-    addNotes: addNotes,
+    addNote: addNote,
+    removeNote: removeNote,
 };
