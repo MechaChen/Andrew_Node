@@ -5,22 +5,23 @@ const getNotes = require('./notes');
 console.log(process.argv);
 console.log(yargs.argv);
 
-// [CMD] node app.js
-// ->
-// [
-//   '/usr/local/bin/node',
-//   '/Users/laicailin/Desktop/Andrew/node-course/notes-app/app.js'
-// ]
-// { _: [], '$0': 'app.js' }
-
-
-
-// [CMD] node app.js add --title="Things to buy"
+// [CMD] node app.js --help
 // ->
 // [
 //   '/usr/local/bin/node',
 //   '/Users/laicailin/Desktop/Andrew/node-course/notes-app/app.js',
-//   'add',
-//   '--title=Things to buy'
+//   '--help'
 // ]
-// { _: [ 'add' ], title: 'Things to buy', '$0': 'app.js' }
+// Options:
+//   --help     Show help                                                 [boolean]
+//   --version  Show version number  
+
+
+// [CMD] node app.js --version
+// ->
+// [
+//   '/usr/local/bin/node',
+//   '/Users/laicailin/Desktop/Andrew/node-course/notes-app/app.js',
+//   '--version'
+// ]
+// 1.0.0
