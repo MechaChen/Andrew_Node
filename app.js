@@ -10,11 +10,10 @@ console.log(chalk.green('Success!'));
 console.log(chalk.green.bold('Success!'));
 console.log(chalk.red.bold.inverse('Error!'));
 
-// [CMD] node app.js Benson
-console.log(process.argv);
-// ->
-// [
-//   '/usr/local/bin/node', -> Path to Node.js
-//   '/Users/laicailin/Desktop/Andrew/node-course/notes-app/app.js', -> Path to the File
-//   'Benson' -> Argument
-// ]
+const command = process.argv[2];
+
+if (command === 'add') { 
+  console.log('Adding note!');
+} else if (command === 'remove') {
+  console.log('Remove note!');
+}
