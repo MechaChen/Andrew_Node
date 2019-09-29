@@ -12,6 +12,16 @@ console.log(chalk.red.bold.inverse('Error!'));
 
 const command = process.argv[2];
 
+// [CMD] node app.js add --title="This is my title"
+console.log(process.argv);
+// ->
+// [
+//   '/usr/local/bin/node',
+//   '/Users/laicailin/Desktop/Andrew/node-course/notes-app/app.js',
+//   'add',
+//   '--title=This is my title'
+// ]
+
 if (command === 'add') { 
   console.log('Adding note!');
 } else if (command === 'remove') {
