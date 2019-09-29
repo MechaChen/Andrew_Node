@@ -5,6 +5,15 @@ const getNotes = require('./notes');
 // Change the version
 yargs.version('1.1.0');
 
+// 
+// Challenge: Add an option to yargs
+// 
+// 1. Setup a body option for the add command
+// 2. Configure a description, make it required, and for it to be a string
+// 3. Log the body value in the handler function
+// 4. Test your work!
+
+
 // Create add command
 yargs.command({
     command: 'add',
@@ -14,10 +23,16 @@ yargs.command({
             describe: 'Note title',
             demandOption: true,
             type: 'string',
-        }
+        },
+        body: {
+            describe: 'Note body',
+            demandOption: true,
+            type: 'string',
+        },
     },
     handler: function(argv) {
-      console.log('Title: ' + argv.title);
+        console.log('Title: ' + argv.title);
+        console.log('Body: ' + argv.body);
     },
 });
 
@@ -26,7 +41,7 @@ yargs.command({
     command: 'remove',
     description: 'Remove a note',
     handler: function() {
-      console.log('Removing the note');
+        console.log('Removing the note');
     },
 });
 
@@ -35,7 +50,7 @@ yargs.command({
     command: 'list',
     description: 'List your notes',
     handler: function() {
-      console.log('Listing out all notes');
+        console.log('Listing out all notes');
     },
 });
 
@@ -43,7 +58,7 @@ yargs.command({
     command: 'read',
     description: 'Read a note',
     handler: function() {
-      console.log('Reading a note');
+        console.log('Reading a note');
     },
 });
 
