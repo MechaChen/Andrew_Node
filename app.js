@@ -7,44 +7,46 @@ yargs.version('1.1.0');
 
 // Create add command
 yargs.command({
-  command: 'add',
-  description: 'Add a note',
-  handler: function() {
-    console.log('Adding a new note');
-  },
+    command: 'add',
+    description: 'Add a note',
+    builder: {
+        title: {
+            describe: 'Note title',
+            demandOption: true,
+            type: 'string',
+        }
+    },
+    handler: function(argv) {
+      console.log('Title: ' + argv.title);
+    },
 });
 
 // Create remove command
 yargs.command({
-  command: 'remove',
-  description: 'Remove a note',
-  handler: function() {
-    console.log('Removing the note');
-  },
+    command: 'remove',
+    description: 'Remove a note',
+    handler: function() {
+      console.log('Removing the note');
+    },
 });
-
-//
-// Challenge: Add two new commands
-// 
-// 1. Setup to support "list" command (print placeholder message for now)
-// 2. Setup to support "read" command (print placeholder message for now)
-// 3. Test your work by running both commands and ensure correct output
 
 // Create list command
 yargs.command({
-  command: 'list',
-  description: 'List your notes',
-  handler: function() {
-    console.log('Listing out all notes');
-  },
+    command: 'list',
+    description: 'List your notes',
+    handler: function() {
+      console.log('Listing out all notes');
+    },
 });
 
 yargs.command({
-  command: 'read',
-  description: 'Read a note',
-  handler: function() {
-    console.log('Reading a note');
-  },
+    command: 'read',
+    description: 'Read a note',
+    handler: function() {
+      console.log('Reading a note');
+    },
 });
 
-console.log(yargs.argv);
+
+// console.log(yargs.argv);
+yargs.parse();
