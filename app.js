@@ -1,29 +1,26 @@
 const validator = require('validator');
+const yargs = require('yargs');
 const getNotes = require('./notes');
 
-const msg = getNotes();
-console.log(msg);
-
-const chalk = require('chalk');
-
-console.log(chalk.green('Success!'));
-console.log(chalk.green.bold('Success!'));
-console.log(chalk.red.bold.inverse('Error!'));
-
-const command = process.argv[2];
-
-// [CMD] node app.js add --title="This is my title"
 console.log(process.argv);
+console.log(yargs.argv);
+
+// [CMD] node app.js
+// ->
+// [
+//   '/usr/local/bin/node',
+//   '/Users/laicailin/Desktop/Andrew/node-course/notes-app/app.js'
+// ]
+// { _: [], '$0': 'app.js' }
+
+
+
+// [CMD] node app.js add --title="Things to buy"
 // ->
 // [
 //   '/usr/local/bin/node',
 //   '/Users/laicailin/Desktop/Andrew/node-course/notes-app/app.js',
 //   'add',
-//   '--title=This is my title'
+//   '--title=Things to buy'
 // ]
-
-if (command === 'add') { 
-  console.log('Adding note!');
-} else if (command === 'remove') {
-  console.log('Remove note!');
-}
+// { _: [ 'add' ], title: 'Things to buy', '$0': 'app.js' }
