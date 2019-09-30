@@ -17,8 +17,11 @@ const loadNotes = () => {
 
 const addNote = (title, body) => {
     const notes = loadNotes();
-
     const duplicateNote = notes.find((note) => note.title === title);
+
+    debugger;
+    // [CMD] node --inspect-brk app.js add --title="Node.js" --body="Course"
+
 
     if(!duplicateNote) {
         notes.push({ title: title, body: body });
