@@ -1,15 +1,15 @@
-const validator = require('validator');
 const yargs = require('yargs');
 const notes = require('./notes');
 
 // 
-// Goal: Wire up list command
+// Goal: Wire up read command
 // 
-// 1. Create and export listNotes from notes.js
-//  - "Your notes" using chalk
-//  - Print note title for each note
-// 2. Call list notes from command handler
-// 3. Test your work!
+// 1. Setup --title option for read command
+// 2. Create readNote in notes.js
+//  - Search for note by title
+//  - Find note and print title (styled) and body (plain)
+// 3. Have the command handler call the function
+// 4. Test your work by running a couple commands
 
 
 // Change the version
@@ -65,8 +65,15 @@ yargs.command({
 yargs.command({
     command: 'read',
     description: 'Read a note',
-    handler() {
-        console.log('Reading a note');
+    builder: {
+        title: {
+            describe: 'read a note',
+            demandOption: true,
+            type: 'string',
+        },
+    },
+    handler(argv) {
+        notes.readNote(argv.title);
     },
 });
 

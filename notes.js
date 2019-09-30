@@ -18,9 +18,9 @@ const loadNotes = () => {
 const addNote = (title, body) => {
     const notes = loadNotes();
 
-    const duplicateNotes = notes.filter((note) => note.title === title);
+    const duplicateNote = notes.find((note) => note.title === title);
 
-    if(duplicateNotes.length === 0) {
+    if(!duplicateNote) {
         notes.push({ title: title, body: body });
         saveNotes(notes);
         console.log(chalk.bgGreen('New note added!'));
@@ -50,6 +50,18 @@ const listNotes = () => {
     });
 }
 
+const readNote = (title) => {
+    const notes = loadNotes();
+    const note = notes.find((note) => note.title === title);
+
+    if(note) {
+        console.log(chalk.black.bgGreen(note.title));
+        console.log(note.body);
+    } else {
+        console.log(chalk.bgRed(`The note doesn't exist.`))
+    }
+};
+
 const saveNotes = (notes) => {
     const dataJSON = JSON.stringify(notes);
     fs.writeFileSync('notes.json', dataJSON);
@@ -61,4 +73,5 @@ module.exports = {
     addNote: addNote,
     removeNote: removeNote,
     listNotes: listNotes,
+    readNote: readNote,
 };
