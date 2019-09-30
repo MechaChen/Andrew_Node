@@ -3,10 +3,12 @@ const yargs = require('yargs');
 const notes = require('./notes');
 
 // 
-// Goal: Refactor all functions
+// Goal: Wire up list command
 // 
-// 1. If function is a method, use ES6 methods definition syntaz
-// 2. Otherwise, use most concise arrow function possible
+// 1. Create and export listNotes from notes.js
+//  - "Your notes" using chalk
+//  - Print note title for each note
+// 2. Call list notes from command handler
 // 3. Test your work!
 
 
@@ -55,10 +57,11 @@ yargs.command({
     command: 'list',
     description: 'List your notes',
     handler() {
-        console.log('Listing out all notes');
+        notes.listNotes();
     },
 });
 
+// Create read command
 yargs.command({
     command: 'read',
     description: 'Read a note',
